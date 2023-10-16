@@ -3,6 +3,8 @@ class PackagesController < ApplicationController
     matching_packages = Package.all
 
     @list_of_packages = matching_packages.order({ :created_at => :desc })
+    # @waiting_on = Package.where({ :received_at => nil })
+    # @received = Package.where.not({ :received_at => nil })
 
     render({ :template => "packages/index" })
   end

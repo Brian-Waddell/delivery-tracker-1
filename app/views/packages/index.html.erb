@@ -1,8 +1,14 @@
+<a href = "/user/sign_in"> Delivery Tracker </a> | <a href = "/user/edit" > Edit profile </a> | <a href = "/user/sign_in"> Sign out </a>
+<hr>
+<div>
+<%= notice %>
+</div>
 <div>
   <div>
     <h1>
-      List of all packages
+      Delivery Tracker
     </h1>
+    <p> Know if something gets lost in the mail </p>
   </div>
 </div>
 
@@ -11,7 +17,7 @@
 <div>
   <div>
     <h2>
-      Add a new package
+      Expecting a new Package
     </h2>
 
     <form action="/insert_package" method="post">
@@ -36,19 +42,15 @@
           Details
         </label>
 
-        <input type="text" id="details_box" name="query_details">
+        <textarea id="details_box" name="query_details" rows= "3"> </textarea>
       </div>
 
       <div>
-        <label for="user_id_box">
-          User
-        </label>
-
-        <input type="text" id="user_id_box" name="query_user_id">
+      <input type="hidden" name="query_user_id" value="<%= @current_user.id %>">
       </div>
 
       <button>
-        Create package
+        Log Delivery 
       </button>
     </form>
   </div>

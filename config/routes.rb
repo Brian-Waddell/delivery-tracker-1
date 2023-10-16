@@ -5,12 +5,13 @@ Rails.application.routes.draw do
 
   #get("/", { :controller => "user_authentication", :action => "log_in"})
 
-  get("/user/sign_up", { :controller => "user_authentication", :action => "sign_up_form" })        
+  get("/users/sign_up", { :controller => "user_authentication", :action => "sign_up_form" })        
   # CREATE RECORD
   post("/insert_user", { :controller => "user_authentication", :action => "create"  })
       
   # EDIT PROFILE FORM        
-  get("/edit_user_profile", { :controller => "user_authentication", :action => "edit_profile_form" })       
+  get("/user/edit", { :controller => "user_authentication", :action => "edit_profile_form" }) 
+
   # UPDATE RECORD
   post("/modify_user", { :controller => "user_authentication", :action => "update" })
   
@@ -20,7 +21,7 @@ Rails.application.routes.draw do
   # ------------------------------
 
   # SIGN IN FORM
-  get("/user/sign_in", { :controller => "user_authentication", :action => "sign_in_form" })
+  get("/users/sign_in", { :controller => "user_authentication", :action => "sign_in_form" })
   # AUTHENTICATE AND STORE COOKIE
   post("/user_verify_credentials", { :controller => "user_authentication", :action => "create_cookie" })
 

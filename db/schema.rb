@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_15_223434) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_16_150544) do
   create_table "packages", force: :cascade do |t|
     t.string "description"
     t.date "suppose_to_arrive"
@@ -18,6 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_15_223434) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "status", default: false
   end
 
   create_table "users", force: :cascade do |t|

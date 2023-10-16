@@ -1,6 +1,6 @@
 class UserAuthenticationController < ApplicationController
   # Uncomment line 3 in this file and line 5 in ApplicationController if you want to force users to sign in before any other actions.
-  #skip_before_action(:force_user_sign_in, { :only => [:sign_up_form, :create, :sign_in_form, :create_cookie] })
+  skip_before_action(:force_user_sign_in, { :only => [:sign_up_form, :create, :sign_in_form, :create_cookie] })
 
   def new_password_form
 
@@ -19,14 +19,14 @@ class UserAuthenticationController < ApplicationController
       are_they_legit = user.authenticate(the_supplied_password)
     
       if are_they_legit == false
-        redirect_to("/user_sign_in", { :alert => "Incorrect password." })
+        redirect_to("/users/sign_in", { :alert => "Incorrect password." })
       else
         session.store(:user_id, user.id)
       
-        redirect_to("/", { :notice => "Signed in successfully." })
+        redirect_to("/packages", { :notice => "Signed in successfully." })
       end
     else
-      redirect_to("/user_sign_in", { :alert => "No user with that email address." })
+      redirect_to("/users/sign_in", { :alert => "No user with that email address." })
     end
   end
 
