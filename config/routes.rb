@@ -3,14 +3,16 @@ Rails.application.routes.draw do
 
   # SIGN UP FORM
 
-  # get("/", { :controller => "user_authentication", :action => "log_in"})
+  #  get("/", { :controller => "user_authentication", :action => "log_in"})
 
-  get("/users/sign_up", { :controller => "user_authentication", :action => "sign_up_form" })        
+  get("/users/sign_up", { :controller => "user_authentication", :action => "sign_up_form" })
+  
+  get("/users/sign_in", { :controller => "user_authentication", :action => "sign_in_form"})
   # CREATE RECORD
   post("/insert_user", { :controller => "user_authentication", :action => "create"  })
       
   # EDIT PROFILE FORM        
-  get("/user/edit", { :controller => "user_authentication", :action => "edit_profile_form" }) 
+  get("/users/edit", { :controller => "user_authentication", :action => "edit_profile_form" }) 
 
   # UPDATE RECORD
   post("/modify_user", { :controller => "user_authentication", :action => "update" })
@@ -54,5 +56,5 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-   root "articles#index"
+   root "packages#index"
 end

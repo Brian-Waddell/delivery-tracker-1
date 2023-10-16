@@ -1,7 +1,8 @@
-<a href = "/user/sign_in"> Delivery Tracker </a> | <a href = "/user/edit" > Edit profile </a> | <a href = "/user/sign_in"> Sign out </a>
+<a href = "/users/sign_in"> Delivery Tracker </a> | <a href = "/users/edit" > Edit profile </a> | <a href = "/users/sign_in"> Sign out </a>
 <hr>
 <div>
 <%= notice %>
+<%= alert%>
 </div>
 <div>
   <div>
@@ -17,7 +18,7 @@
 <div>
   <div>
     <h2>
-      Expecting a new Package
+      Expecting a package?
     </h2>
 
     <form action="/insert_package" method="post">
@@ -31,7 +32,7 @@
 
       <div>
         <label for="suppose_to_arrive_box">
-          Suppose to arrive
+         Supposed to arrive on
         </label>
 
         <input type="date" id="suppose_to_arrive_box" name="query_suppose_to_arrive">
@@ -50,7 +51,7 @@
       </div>
 
       <button>
-        Log Delivery 
+       Log delivery
       </button>
     </form>
   </div>
@@ -89,8 +90,8 @@
     </div>
 
 <hr>
-<div class="Recieved" style="background-color: lightgreen">
-<h2> Recieved </h2> 
+<div class="received" style="background-color: lightgreen">
+<h2> Received </h2> 
 
  <% @receieved.each do |received_package| %>
 <ul> 
