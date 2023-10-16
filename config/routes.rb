@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   get("/user/sign_in", { :controller => "user_authentication", :action => "sign_in_form" })
   # AUTHENTICATE AND STORE COOKIE
   post("/user_verify_credentials", { :controller => "user_authentication", :action => "create_cookie" })
+
+  get("/user/password/new", { :controller => "user_authentication", :action => "new_password_form"})
   
   # SIGN OUT        
   get("/user_sign_out", { :controller => "user_authentication", :action => "destroy_cookies" })
