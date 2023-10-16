@@ -1,23 +1,35 @@
-<h1>Sign in</h1>
+<nav>
+<a href = " /user/sign_up"> Sign up </a> | <a href = "/user/sign_in"> Sign in </a>
+</nav>
+<hr>
+<h2>Log in</h2>
 
 <form action="/user_verify_credentials" method="post">
   <div>
     <label for="email_box">Email</label>
-    <input id="email_box" name="query_email" placeholder="Enter your email..." type="text">
+  </div>
+  <div>
+    <input id="email_box" name="query_email"  type="text">
   </div>
 
   <div>
     <label for="password_box">Password</label>
-    <input id="password_box" name="query_password" placeholder="Enter your password..." type="password">
+  </div>
+
+  <div>
+    <input id="password_box" name="query_password"  type="password">
   </div>
 
   <button>
-    Sign in
+    Log in
   </button>
 </form>
 
-<hr>
+<div class="field">
+      <input name="user[remember_me]" type="hidden" value="0" autocomplete="off"><input type="checkbox" value="1" name="user[remember_me]" id="user_remember_me">
+      <label for="user_remember_me">Remember me</label>
+</div>
 
-<p>
-  Or, <a href="/user_sign_up">Sign up</a> instead.
-</p>
+<a href = "/user/sign_up"> Sign up </a>
+<div> </div>
+<a href = "/user/password/new"> Forgot your password? </a>

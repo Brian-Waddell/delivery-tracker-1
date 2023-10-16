@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   # Routes for the User account:
 
   # SIGN UP FORM
-  get("/user_sign_up", { :controller => "user_authentication", :action => "sign_up_form" })        
+
+  #get("/", { :controller => "user_authentication", :action => "log_in"})
+
+  get("/user/sign_up", { :controller => "user_authentication", :action => "sign_up_form" })        
   # CREATE RECORD
   post("/insert_user", { :controller => "user_authentication", :action => "create"  })
       
@@ -17,7 +20,7 @@ Rails.application.routes.draw do
   # ------------------------------
 
   # SIGN IN FORM
-  get("/user_sign_in", { :controller => "user_authentication", :action => "sign_in_form" })
+  get("/user/sign_in", { :controller => "user_authentication", :action => "sign_in_form" })
   # AUTHENTICATE AND STORE COOKIE
   post("/user_verify_credentials", { :controller => "user_authentication", :action => "create_cookie" })
   
@@ -48,5 +51,5 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  # root "articles#index"
+   root "articles#index"
 end
