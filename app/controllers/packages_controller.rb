@@ -4,7 +4,10 @@ class PackagesController < ApplicationController
 
     @list_of_packages = matching_packages.order({ :created_at => :desc })
     # @waiting_on = Package.where({ :received_at => nil })
+    @waiting_on = Package.where({ :status => false })
+
     # @received = Package.where.not({ :received_at => nil })
+    @receieved = Package.where({ :status => true})
 
     render({ :template => "packages/index" })
   end
@@ -38,16 +41,14 @@ class PackagesController < ApplicationController
     the_id = params.fetch("path_id")
     the_package = Package.where({ :id => the_id }).at(0)
 
-    the_package.description = params.fetch("query_description")
-    the_package.suppose_to_arrive = params.fetch("query_suppose_to_arrive")
-    the_package.details = params.fetch("query_details")
-    the_package.user_id = params.fetch("query_user_id")
+ 
+    the_package.status = params.fetch("arrived")
 
     if the_package.valid?
       the_package.save
-      redirect_to("/packages/#{the_package.id}", { :notice => "Package updated successfully."} )
+      redirect_to("/packages", { :notice => "Package updated successfully."} )
     else
-      redirect_to("/packages/#{the_package.id}", { :alert => the_package.errors.full_messages.to_sentence })
+      redirect_to("/packages", { :alert => the_package.errors.full_messages.to_sentence })
     end
   end
 
